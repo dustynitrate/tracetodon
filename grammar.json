@@ -1,0 +1,24 @@
+{
+	"mysteryword": [
+		"mystery",
+		"clue",
+		"secret"
+
+	],
+	"descriptor": [
+		"hidden",
+		"haunted",
+		"strange"
+	],
+	"noun": [
+		"key",
+		"album",
+		"robot",
+		"clock",
+		"diary",
+		"charm"
+	],
+	"origin": [
+		"Nancy Drew and the #mysteryword# of the #descriptor# #noun#"
+	]
+}

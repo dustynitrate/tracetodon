@@ -1,0 +1,7 @@
+{
+    "base_url": "https://botsin.space",
+    "client_id": "your_id_here",
+    "client_secret": "your_secret_here",
+    "access_token": "your_token_here",
+    "grammar_file": "grammar.json"
+}
