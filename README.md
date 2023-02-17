@@ -132,7 +132,7 @@ For example, from the tracetodon directory, type `vim grammar.json` to open `gra
 
 Since most instances limit toots to 500 characters, make sure the text generated is less than or equal to that; the bot will try 10 times to generate a toot under the character limit, but after that it will stop.
 
-###set up your application on mastodon
+### set up your application on mastodon
 If you haven't already registered/requested your bot's account on your instance of choice (eg [botsin.space](https://botsin.space/)), do that now & login to the web client. Time to set up our app!
 
 First head over to "Profile" and select the following to signal to others that the account is a bot:
@@ -151,7 +151,7 @@ Application name: [your bot's name here]
 
 Then hit submit! You'll get an "application successfully created" message and your app will appear in the application list now. Go ahead and select it now so we can grab our keys/secret/token.
 
-###grab your key/secret/token
+### grab your key/secret/token
 Go ahead and grab the following from the Application you just set up:
 ```
 Client key
@@ -201,12 +201,12 @@ python3 tracetodon.py
 ```
 It'll look like nothing happened in terminal; but if you head over to your bot's page, you should see the toot it generated!
 
-##Bot-ify it
+## Bot-ify it
 Now that we know the bot works, let's  get it set up to run at a pre-determined interval.
 
 To do this we're going to first write a simple shell script that'll tap the bot, and then we'll use cron to schedule that script at whatever interval we want to.
 
-###write the shell script
+### write the shell script
 Navigate back to your home directory if you're not already there:
 ```
 cd ~
