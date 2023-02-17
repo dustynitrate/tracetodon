@@ -5,10 +5,10 @@ A simple, easy-to-run Mastodon bot to post procedurally-generated text using tra
 ## how it's written
 The bot is written in Python 3 and uses [Tracery](https://pypi.python.org/pypi/tracery) and [Mastodon.py](https://github.com/halcy/Mastodon.py).  It was adapted from [duxovni's tracerybot](https://github.com/duxovni/tracerybot), which was in turn adapted from [sipb's mastodon autoresponder](https://github.com/sipb/mastodon-bot-autoresponder).
 
-##what it does
+## what it does
 tracetodon simply toots/publishes text generated using your tracery grammar; it does not check or respond to notifications/interactions.
 
-##about this guide
+## about this guide
 This guide walks the reader through configuring the bot with a tracery grammar and mastodon keys, and then instructs on using a shell script scheduled using cron to run the bot at a defined frequency.
 
 My intention with this expanded readme and particular method of bot-ification was to walk the reader through a method that was fairly easy for a beginner/novice to set up, and did not require much intervention aside from pasting in the grammar, editing the config, and scheduling the bot. 
@@ -17,19 +17,19 @@ The other, sneaky intention was to help prospective bot-makers become more comfo
 
 If you already know how to do all of this and/or this guide is too hand-holdy for you, consult `readme_advanced.md` instead.
 
-##requirements
+## requirements
 This guide assumes the reader has written a tracery grammar but has little/no familiarity with how to bot-ify it. This readme walks the bot-maker though one method of botmaking, though there are countless others.  Basic understanding of the command line and of python is helpful but not entirely necessary.
 
 This guide outlines a method that requires the use of a unix-like system, e.g. MacOS or your preferred flavour of Linux. A separate readme on using Windows may be added at a later date.
 
 We'll focus on getting the bot running locally, then touch on other options for hosting it.
 
-##setup
+## setup
 Before you customize the bot with your own grammar, let's go ahead and get it configured to run.
-###clone this repo
+### clone this repo
 You can clone the repo using command line/terminal or by downloading directly from the repo page.
 
-####From terminal
+#### From terminal
 Open terminal and check to be sure you have git:
 
 ```
@@ -56,7 +56,7 @@ Mac: /Users/[your_user]
 Linux: /home/[your_user]
 ``` 
 
-####From repo page
+#### From repo page
 
 Alternatively, if you don't want to use terminal, you can download the zip directly from the repo page by selecting Code/Download ZIP [from the repo](https://github.com/dustynitrate/tracetodon).
 
@@ -85,17 +85,17 @@ source env/bin/activate
 ```
 And hit enter again. You should have `(env)` at the beginning of your command prompt now.
 
-###install the dependencies
+### install the dependencies
 Required dependencies are in `requirements.txt`, so all you need to do is use `pip` to install them.
 
 ```
 pip install -r requirements.txt
 ```
 
-##getting ready to run
+## getting ready to run
 Now that we have our copy of tracetodon, let's get it customized with your grammar and point it to your bot's Mastodon account.
 
-###add your grammar
+### add your grammar
 All you need to do to get the bot customized with your tracery grammar is paste the grammar into `grammar.json`. Your grammar should look something like this:
 ```
 {
@@ -163,7 +163,7 @@ Goes without saying, but just in case: NEVER SHARE OR PUBLISH THESE. You can alw
 
 Now that you have those, let's update the config so your bot can toot!
 
-###grab your key/secret/token & update the config
+### grab your key/secret/token & update the config
 The bot is configured in config.json. The config will look like this, but with your values subbed in:
 
 ```
@@ -186,7 +186,7 @@ All the keys are mandatory. Here's what each of those keys are:
 
 Again, you can add the values using your text editor of choice, or use vim or similar from terminal.
 
-##Test the bot
+## Test the bot
 Before scheduling, let's manually hit the bot to see if the output is what we want! 
 
 Open the terminal and navigate to the directory where the bot lives. If it's in your home directory, do this:
@@ -233,7 +233,7 @@ To break it down a bit:
 
 Alternatively, you can navigate to your home directory and create/edit the `.sh` file there using a text editor.
 
-###make it executable
+### make it executable
 Finally, we need to make the script executable. We do this using `chmod`. We're going to make it executable for all users:
 ```
 chmod -x run_tracetodon.sh 
@@ -245,7 +245,7 @@ To test if your script works, run the following from your home directory:
 ```
 You should see the bot account post a toot!
 
-###schedule using cron
+### schedule using cron
 Assuming you haven't used crontab before, you'll need to create a crontab file. To do that, do this:
 
 ```
@@ -271,10 +271,10 @@ If you want to modify the frequency to suit your needs, you can use [the cron ex
 
 Now we sit back and wait... and if you check your bot's account at the scheduled time, you should see the posted toot!
 
-##What next?
+## What next?
 Well, you could just let your bot run on your local machine forever... but that also requires your machine being on/active, so might not be the most practical choice. But, hey, less-than-perfect and erratic bots also have their charm.
 
-However, if you were able to run through this tutorial successfully, you can get your bot hosted somewhere with little extra effort! Some of my favourite beginner-friendly options that offer a free or low-cost tier for hosting include:
+However, if you were able to run through this extended readme successfully, you can get your bot hosted somewhere with little extra effort! Some of my favourite beginner-friendly options that offer a free or low-cost tier for hosting include:
 
 [PythonAnywhere](https://www.pythonanywhere.com). Free tier is just fine if you only want your bot posting once or twice a day, plus scheduled tasks makes setting the bot to run a breeze.
 
@@ -286,13 +286,16 @@ However, if you were able to run through this tutorial successfully, you can get
 
 [Google Cloud Platform](https://cloud.google.com/free/). Offers a free tier.
 
-##FAQ
-####How do I stop my bot?
+## FAQ
+#### How do I stop my bot?
 You can remove the cron job entirely by opening crontab with `crontab -e`, hitting `i` to insert, deleting the line with the job, then exit vim with:  To check if the cron job was removed, use `crontab -l`.
 `esc`, `:`, `w`, then `q`.
-####Why cron when there's sleep()?
+#### Why cron when there's sleep()?
 I opted for using cron job instead of a sleep loop so beginners wouldn't need to touch the bot's code to alter the frequency. Though there is an argument that shell scripts and cron are just as confusing; but, hey, now you can say you have experience with both. ;) 
 This also keeps the cost low both in terms of money dollars (you can run it a couple of times a day on something like PythonAnywhere for free with no danger of going into the tarpit, or tap the bot at a scheduled frequency on any other service too) and CPU use if running locally (though a bot like this is not really all that resource-intensive).
 
-####Why shell script when you could just make the python executable for crontab?
+#### Why shell script when you could just make the python executable for crontab?
 Yes, yes, I know we could've skipped the shell script and stuck something like `#!/usr/bin/env python3` at the top of `tracetodon.py`; but that method would've also required a lengthier command in crontab and some diverging paths depending on the user's system/setup, and I was trying to beginner-proof this as much as possible.
+
+#### Why did you put all this in a readme instead of the project wiki?
+There is an argument that something like this is way too long for a readme and is probably better-suited to the wiki... but I was thinking of the beginner hear, and how they might find it useful to pull down the whole tutorial for reference when cloning the repo; makes things a little more self-contained, too.
