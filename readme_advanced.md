@@ -2,7 +2,7 @@
 
 A simple, easy-to-run Mastodon bot to post procedurally-generated text using tracery. This bot is geared towards first-time botmakers or anyone who wants to crank out a very simple bot in a matter of minutes that they can then trigger using their method of choice.
 
-##a note about the readme
+## a note about the readme
 If you're an experienced botmaker and know to schedule your bot using your chosen method, this readme is for you. If not, use `readme.md`.
 
 ## how it's written
@@ -11,8 +11,8 @@ The bot is written in Python 3 and uses [Tracery](https://pypi.python.org/pypi/t
 ## what it does
 tracetodon toots text generated using your tracery grammar; it does not check or respond to notifications/interactions. A scheduling function via a defined interval and `sleep()` is not included, so you'll use your preferred method of scheduling e.g. cron to set the interval for prompting the bot. 
 
-##setting up the bot
-###clone this repo
+## setting up the bot
+### clone this repo
 ```
 git clone git@github.com:dustynitrate/tracetodon.git
 ```
@@ -25,7 +25,7 @@ source env/bin/activate
 ```
 pip install -r requirements.txt
 ```
-###add your grammar
+### add your grammar
 Paste your tracery grammar into `grammar.json`. Your grammar should look something like this:
 ```
 {
@@ -53,7 +53,7 @@ Paste your tracery grammar into `grammar.json`. Your grammar should look somethi
 	]
 }
 ```
-###set up your application on mastodon
+### set up your application on mastodon
 Designate your bot's account as a bot in "Profile":
 ```
 [✓] This is a bot account
@@ -65,7 +65,7 @@ Application name: [your bot's name here]
 [✓] write
 [✓] follow
 ```
-###grab your key/secret/token
+### grab your key/secret/token
 Grab the following from the Application you just set up:
 ```
 Client key
@@ -73,7 +73,7 @@ Client secret
 Your access token
 ```
 
-###grab your key/secret/token & update the config
+### grab your key/secret/token & update the config
 The bot is configured in config.json. The config will look like this, but with your values subbed in:
 
 ```
