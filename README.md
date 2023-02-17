@@ -298,4 +298,4 @@ This also keeps the cost low both in terms of money dollars (you can run it a co
 Yes, yes, I know we could've skipped the shell script and stuck something like `#!/usr/bin/env python3` at the top of `tracetodon.py`; but that method would've also required a lengthier command in crontab and some diverging paths depending on the user's system/setup, and I was trying to beginner-proof this as much as possible.
 
 #### Why did you put all this in a readme instead of the project wiki?
-There is an argument that something like this is way too long for a readme and is probably better-suited to the wiki... but I was thinking of the beginner hear, and how they might find it useful to pull down the whole tutorial for reference when cloning the repo; makes things a little more self-contained, too.
+There is an argument that something like this is way too long for a readme and is probably better-suited to the wiki... but I was thinking of the beginner here, and how they might find it useful to pull down the whole tutorial for reference when cloning the repo; makes things a little more self-contained, too.
